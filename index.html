@@ -1,117 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyber Expert Bd - Alpha Ariyan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-  <style>
-    :root {
-      --primary: #ff0055; /* Cyber Pink */
-      --secondary: #00f2ff; /* Cyber Cyan */
-      --bg: #050505;
-      --panel: rgba(15, 15, 20, 0.85);
-      --text: #e0e0e0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cyber Hacker Profile</title>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      font-family: 'Chakra Petch', sans-serif;
-      color: var(--text);
-      overflow-x: hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
-    /* New Animated Background */
-    .bg-anim {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 50% 50%, #1a0510, #050505);
-      z-index: -1;
-    }
+<style>
+body {
+  margin: 0;
+  background: black;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+  color: white;
+}
 
-    .container { width: min(500px, 95%); margin: 50px auto; text-align: center; }
+/* MATRIX BACKGROUND */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
-    .profile-box {
-      border: 2px solid var(--primary);
-      padding: 20px;
-      border-radius: 30px;
-      background: var(--panel);
-      box-shadow: 0 0 20px rgba(255, 0, 85, 0.3);
-      margin-bottom: 30px;
-    }
+/* MAIN CONTAINER */
+.container {
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  padding-top: 40px;
+}
 
-    .name-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
-      color: var(--secondary);
-      text-transform: uppercase;
-      margin-top: 15px;
-    }
+/* PROFILE IMAGE */
+.profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #00ffcc;
+  box-shadow: 0 0 25px #00ffcc, 0 0 50px #ff003c;
+  object-fit: cover;
+  animation: pulse 2s infinite;
+}
 
-    .subtitle { color: var(--primary); font-weight: bold; letter-spacing: 2px; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 15px #00ffcc; }
+  50% { box-shadow: 0 0 35px #ff003c; }
+  100% { box-shadow: 0 0 15px #00ffcc; }
+}
 
-    .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+/* NAME GLITCH */
+.name {
+  font-size: 28px;
+  margin-top: 15px;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #ff003c;
+  position: relative;
+}
 
-    .btn {
-      text-decoration: none;
-      color: white;
-      padding: 15px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: 0.3s;
-      display: flex; flex-direction: column; align-items: center;
-    }
+.name::before,
+.name::after {
+  content: "Alpha Ariyan";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
-    .btn:hover { background: var(--primary); border-color: white; transform: translateY(-5px); }
+.name::before {
+  color: #ff003c;
+  animation: glitch 2s infinite;
+}
 
-    textarea, select, input {
-      width: 100%; padding: 15px; margin-top: 10px; border-radius: 10px;
-      background: #111; border: 1px solid #333; color: white;
-    }
+.name::after {
+  color: #00ffff;
+  animation: glitch 1.5s infinite;
+}
 
-    .submit-btn {
-      width: 100%; padding: 15px; margin-top: 20px;
-      background: var(--secondary); color: black; font-weight: bold;
-      border: none; border-radius: 10px; cursor: pointer;
-    }
-  </style>
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px,2px); }
+  40% { transform: translate(2px,-2px); }
+  60% { transform: translate(-1px,1px); }
+  100% { transform: translate(0); }
+}
+
+/* SOCIAL BUTTONS */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #00ffcc;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff003c;
+  transform: scale(1.05);
+}
+
+/* FORM */
+select, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: #111;
+  border: 1px solid #00ffcc;
+  color: white;
+  border-radius: 10px;
+}
+
+button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #00ffcc;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: #ff003c;
+  color: white;
+}
+</style>
 </head>
+
 <body>
-  <div class="bg-anim"></div>
-  <div class="container">
-    <div class="profile-box">
-      <h1 class="name-title">Alpha Ariyan</h1>
-      <p class="subtitle">CYBER EXPERT BD</p>
-    </div>
 
-    <div class="social-grid">
-      <a href="https://www.facebook.com/share/18hmpjCquP/" class="btn"><i class="fa-brands fa-facebook"></i> Facebook</a>
-      <a href="https://www.instagram.com/aplha.ariyan?igsh=MTNlYWpkN3djdDc3dA==" class="btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
-      <a href="https://www.tiktok.com/@alpha_ariyan0?_r=1&_t=ZS-97T9NHipH20" class="btn"><i class="fa-brands fa-tiktok"></i> TikTok</a>
-      <a href="https://t.me/+WxMpXF5jF-5kMjFl" class="btn"><i class="fa-brands fa-telegram"></i> Telegram</a>
-    </div>
+<canvas id="matrix"></canvas>
 
-    <form id="supportForm" style="margin-top: 30px;">
-      <select id="service" required>
-        <option value="">Select Service</option>
-        <option>Account Recovery</option>
-        <option>Security Check</option>
-      </select>
-      <textarea id="problem" placeholder="Describe your problem..." required></textarea>
-      <button type="submit" class="submit-btn">Send to WhatsApp</button>
-    </form>
+<div class="container">
+
+  <!-- PROFILE IMAGE -->
+  <img class="profile" src="https://i.ibb.co.com/G4jVV53d/IMG-20260624-WA0022.jpg" />
+
+  <!-- NAME -->
+  <div class="name">Alpha Ariyan</div>
+
+  <p style="color:#00ffcc;">CYBER HACKER BD</p>
+
+  <!-- SOCIAL -->
+  <div class="grid">
+    <a class="btn" href="https://www.facebook.com/share/18hmpjCquP/"><i class="fa-brands fa-facebook"></i> Facebook</a>
+    <a class="btn" href="https://www.instagram.com/aplha.ariyan?igsh=MTNlYWpkN3djdDc3dA=="><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a class="btn" href="https://www.tiktok.com/@alpha_ariyan0?_r=1&_t=ZS-97T9NHipH20"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+    <a class="btn" href="https://t.me/+WxMpXF5jF-5kMjFl"><i class="fa-brands fa-telegram"></i> Telegram</a>
   </div>
 
-  <script>
-    document.getElementById("supportForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const service = document.getElementById("service").value;
-      const problem = document.getElementById("problem").value;
-      const url = `https://wa.me/8801999991028?text=Service: ${service}%0AProblem: ${problem}`;
-      window.open(url, "_blank");
-    });
-  </script>
+  <!-- FORM -->
+  <form id="supportForm">
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option>Account Recovery</option>
+      <option>Security Check</option>
+    </select>
+
+    <textarea id="problem" placeholder="Write your issue..." required></textarea>
+
+    <button type="submit">Send to WhatsApp</button>
+  </form>
+
+</div>
+
+<script>
+document.getElementById("supportForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const service = document.getElementById("service").value;
+  const problem = document.getElementById("problem").value;
+
+  const url = `https://wa.me/8801999991028?text=Service:${service}%0AProblem:${problem}`;
+  window.open(url, "_blank");
+});
+
+/* MATRIX EFFECT */
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let letters = "01";
+letters = letters.split("");
+
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for (let x = 0; x < columns; x++)
+  drops[x] = 1;
+
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#00ffcc";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters[Math.floor(Math.random() * letters.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+}
+
+setInterval(draw, 35);
+</script>
+
 </body>
-        </html>
+</html>
